@@ -13,6 +13,7 @@ dotenv.config();
 
 // Import API handlers (routes)
 import aliveHandler from "./api/alive.js";
+import techsHandler from "./api/techs/index.js";
 
 // Setup Express
 const app = express();
@@ -31,6 +32,10 @@ app.use(express.json());
 // API Routes - map to the serverless functions
 app.get("/api/alive", async (req, res) => {
   await aliveHandler(req, res);
+});
+
+app.get("/api/techs", async (req, res) => {
+  await techsHandler(req, res);
 });
 
 // Make every server-side-route to match the index.html
