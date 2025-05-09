@@ -1,20 +1,19 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
 import path from "path";
-import dotenv from "dotenv";
 import { fileURLToPath } from "url";
+
+// Load environment variables
+import "./config/load-env.js";
 
 // Get __dirname equivalent in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load environment variables
-dotenv.config();
-
 // Import API handlers (routes)
 import aliveHandler from "./api/alive.js";
+import examHandler from "./api/exam/index.js";
 import techsHandler from "./api/techs/index.js";
-
 // Setup Express
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,6 +35,10 @@ app.get("/api/alive", async (req, res) => {
 
 app.get("/api/techs", async (req, res) => {
   await techsHandler(req, res);
+});
+
+app.post("/api/exam/start", async (req, res) => {
+  await examHandler(req, res);
 });
 
 // Make every server-side-route to match the index.html

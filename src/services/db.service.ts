@@ -1,6 +1,9 @@
-import { MongoClient, Db } from "mongodb";
+import { MongoClient, Db, Document } from "mongodb";
+
+import "../config/load-env.js";
 
 const uri = process.env.MONGODB_URI;
+console.log(`uri:`, uri);
 const dbName = process.env.MONGODB_DB;
 
 let cachedClient: MongoClient | null = null;
@@ -32,10 +35,10 @@ const connectToDatabase = async () => {
   return { client, db };
 };
 
-const getCollection = async (collectionName: string) => {
+const getCollection = async <T extends Document>(collectionName: string) => {
   try {
     const { db } = await connectToDatabase();
-    return db.collection(collectionName);
+    return db.collection<T>(collectionName);
   } catch (error) {
     console.error("Failed to get MongoDB collection:", error);
     throw error;
