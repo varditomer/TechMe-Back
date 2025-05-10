@@ -10,4 +10,4 @@ export interface Question {
   code?: string;
   options: string[];
   correctOptionIndex: number;
-}
+} 

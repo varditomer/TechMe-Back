@@ -1,0 +1,214 @@
+{
+    "techs": [
+        {
+            "id": "react",
+            "name": "React"
+        },
+        {
+            "id": "node",
+            "name": "Node.js"
+        },
+        {
+            "id": "js",
+            "name": "JavaScript"
+        },
+        {
+            "id": "ts",
+            "name": "TypeScript"
+        },
+        {
+            "id": "css",
+            "name": "CSS"
+        }
+    ],
+    "questions": [
+        {
+            "id": "react-1",
+            "tech": "react",
+            "question": "What is the correct order of execution in this React component?\n\nfunction MyComponent() {\n  console.log('Render');\n  useEffect(() => {\n    console.log('Effect');\n  }, []);\n  return <div>Hello</div>;\n}",
+            "code": "function MyComponent() {\n  console.log('Render');\n  useEffect(() => {\n    console.log('Effect');\n  }, []);\n  return <div>Hello</div>;\n}",
+            "options": [
+                "Effect then Render",
+                "Render then Effect",
+                "Only Effect",
+                "Only Render"
+            ],
+            "correctOptionIndex": 1
+        },
+        {
+            "id": "react-2",
+            "question": "What is the purpose of the useCallback hook in React?",
+            "tech": "react",
+            "options": [
+                "To memoize a callback function",
+                "To handle side effects",
+                "To manage state",
+                "To create refs"
+            ],
+            "correctOptionIndex": 0
+        },
+        {
+            "id": "react-3",
+            "question": "What will be the output of this code?\n\nconst [count, setCount] = useState(0);\nuseEffect(() => {\n  setCount(count + 1);\n}, []);",
+            "code": "const [count, setCount] = useState(0);\nuseEffect(() => {\n  setCount(count + 1);\n}, []);",
+            "tech": "react",
+            "options": [
+                "count will be 0",
+                "count will be 1",
+                "count will be 2",
+                "Infinite loop"
+            ],
+            "correctOptionIndex": 1
+        },
+        {
+            "id": "node-1",
+            "question": "What is the purpose of the Node.js event loop?",
+            "tech": "node",
+            "options": [
+                "To handle HTTP requests",
+                "To manage asynchronous operations",
+                "To compile JavaScript",
+                "To manage memory"
+            ],
+            "correctOptionIndex": 1
+        },
+        {
+            "id": "node-2",
+            "question": "Which of these is NOT a core Node.js module?",
+            "tech": "node",
+            "options": [
+                "fs",
+                "http",
+                "express",
+                "path"
+            ],
+            "correctOptionIndex": 2
+        },
+        {
+            "id": "node-3",
+            "question": "What does this code do?\n\nconst fs = require('fs');\nfs.promises.readFile('file.txt', 'utf8')",
+            "code": "const fs = require('fs');\nfs.promises.readFile('file.txt', 'utf8')",
+            "tech": "node",
+            "options": [
+                "Reads file synchronously",
+                "Reads file asynchronously",
+                "Writes to file",
+                "Deletes file"
+            ],
+            "correctOptionIndex": 1
+        },
+        {
+            "id": "js-1",
+            "question": "What is the output of this code?\n\nconsole.log(typeof typeof 1);",
+            "code": "console.log(typeof typeof 1);",
+            "tech": "js",
+            "options": [
+                "number",
+                "string",
+                "undefined",
+                "object"
+            ],
+            "correctOptionIndex": 1
+        },
+        {
+            "id": "js-2",
+            "question": "Which of these is NOT a valid way to create an object in JavaScript?",
+            "tech": "js",
+            "options": [
+                "const obj = {};",
+                "const obj = new Object();",
+                "const obj = Object.create(null);",
+                "const obj = new class {};"
+            ],
+            "correctOptionIndex": 3
+        },
+        {
+            "id": "js-3",
+            "question": "What is the output of this code?\n\nconst arr = [1, 2, 3];\narr[10] = 10;\nconsole.log(arr.length);",
+            "code": "const arr = [1, 2, 3];\narr[10] = 10;\nconsole.log(arr.length);",
+            "tech": "js",
+            "options": [
+                "3",
+                "4",
+                "10",
+                "11"
+            ],
+            "correctOptionIndex": 3
+        },
+        {
+            "id": "ts-1",
+            "question": "What is the type of 'x' in this code?\n\nconst x = [1, 2, 3] as const;",
+            "code": "const x = [1, 2, 3] as const;",
+            "tech": "ts",
+            "options": [
+                "number[]",
+                "readonly number[]",
+                "Array<number>",
+                "Tuple<[1, 2, 3]>"
+            ],
+            "correctOptionIndex": 1
+        },
+        {
+            "id": "ts-2",
+            "question": "Which of these is a valid TypeScript type?",
+            "tech": "ts",
+            "options": [
+                "type Point = { x: number, y: number };",
+                "type Point = { x: number; y: number };",
+                "type Point = { x: number y: number };",
+                "type Point = { x: number & y: number };"
+            ],
+            "correctOptionIndex": 1
+        },
+        {
+            "id": "ts-3",
+            "question": "What is the type of 'result' in this code?\n\nconst result = Promise.resolve(42);",
+            "code": "const result = Promise.resolve(42);",
+            "tech": "ts",
+            "options": [
+                "number",
+                "Promise<number>",
+                "Promise<any>",
+                "any"
+            ],
+            "correctOptionIndex": 1
+        },
+        {
+            "id": "css-1",
+            "question": "What is the specificity order of these selectors from highest to lowest?\n\n#id, .class, element",
+            "tech": "css",
+            "options": [
+                "element, .class, #id",
+                "#id, .class, element",
+                ".class, #id, element",
+                "element, #id, .class"
+            ],
+            "correctOptionIndex": 1
+        },
+        {
+            "id": "css-2",
+            "question": "What does this CSS code do?\n\ndiv { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }",
+            "code": "div { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }",
+            "tech": "css",
+            "options": [
+                "Centers the div horizontally",
+                "Centers the div vertically",
+                "Centers the div both horizontally and vertically",
+                "Moves the div 50% from top and left"
+            ],
+            "correctOptionIndex": 2
+        },
+        {
+            "id": "css-3",
+            "question": "Which of these is NOT a valid CSS display property value?",
+            "tech": "css",
+            "options": [
+                "flex",
+                "grid",
+                "block",
+                "inline-block"
+            ],
+            "correctOptionIndex": 3
+        }
+    ]
+}

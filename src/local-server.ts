@@ -14,6 +14,8 @@ const __dirname = path.dirname(__filename);
 import aliveHandler from "./api/alive.js";
 import examHandler from "./api/exam/index.js";
 import techsHandler from "./api/techs/index.js";
+import seedHandler from "./api/seed/index.js";
+
 // Setup Express
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,6 +29,11 @@ app.use(
   })
 );
 app.use(express.json());
+// Log incoming requests for debugging
+app.use((req, _res, next) => {
+  console.log(`📨 ${req.method} ${req.url}`);
+  next();
+});
 
 // API Routes - map to the serverless functions
 app.get("/api/alive", async (req, res) => {
@@ -40,6 +47,10 @@ app.get("/api/techs", async (req, res) => {
 app.post("/api/exam/start", async (req, res) => {
   await examHandler(req, res);
 });
+
+// app.get("/api/seed", async (req, res) => {
+//   await seedHandler(req, res);
+// });
 
 // Make every server-side-route to match the index.html
 // so when requesting http://localhost:3000/index.html/video/123 it will still respond with
